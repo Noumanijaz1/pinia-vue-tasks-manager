@@ -1,47 +1,68 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import TaskList from './components/TaskList.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="app">
+    <header>
+      <div class="header-content">
+        <img alt="Pinia logo" class="logo" src="https://pinia.vuejs.org/logo.svg" width="40" height="40" />
+        <h1 class="title">Pinia Tasks</h1>
+      </div>
+    </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <main>
+      <TaskList />
+    </main>
+  </div>
 </template>
 
 <style scoped>
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  align-items: stretch;
+  padding: 0;
+}
+
 header {
-  line-height: 1.5;
+  width: 100%;
+  background: #000000;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #fffff0;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  width: 40px;
+  height: 40px;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+main {
+  flex: 1;
+  width: 100%;
+  padding: 1.2rem;
+  background: #fffff0;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+main :deep(.task-manager) {
+  max-width: 720px;
+  margin: 0 auto;
 }
 </style>
